@@ -1,4 +1,4 @@
-local startupUrl = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua?token=GHSAT0AAAAAAEAEAEUPRJPZCYYUGWH4L7MI2RRLFMA"
+local startupUrl = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua"
 
 
 local request = http.get(startupUrl)
