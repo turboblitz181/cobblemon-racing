@@ -1,5 +1,6 @@
 startup_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua"
 tracks_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/tracks/"
+racers_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/racers.json"
 
 local basalt = require("basalt")
 local main = basalt.getMainFrame()
@@ -65,6 +66,19 @@ end)
 
 main:addButton():setText("add track"):setPosition(2,6):setSize(20,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     basalt.setActiveFrame(add_track_frame)
+end)
+
+main:addButton():setText("update racers"):setPosition(2,8):setSize(20,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+    local request = http.get(racers_Url)
+    if not request then
+        print("error getting racers file")
+        return
+    end
+    local file = fs.open("racers.json", "w+")
+    file.write(request.readAll())
+    file.close()
+    request.close()
+    basalt.stop()
 end)
 
 basalt.run()
