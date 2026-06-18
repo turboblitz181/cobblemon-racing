@@ -1,6 +1,7 @@
 startup_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua"
 tracks_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/tracks/"
 racers_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/racers.json"
+racers_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/update.lua"
 
 local basalt = require("basalt")
 local main = basalt.getMainFrame()
@@ -75,6 +76,19 @@ main:addButton():setText("update racers"):setPosition(2,12):setSize(20,3):setBac
         return
     end
     local file = fs.open("racers.json", "w+")
+    file.write(request.readAll())
+    file.close()
+    request.close()
+    basalt.stop()
+end)
+
+main:addButton():setText("update updater"):setPosition(2,16):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+    local request = http.get(update_Url)
+    if not request then
+        print("error getting update file")
+        return
+    end
+    local file = fs.open("updater.lua", "w+")
     file.write(request.readAll())
     file.close()
     request.close()
