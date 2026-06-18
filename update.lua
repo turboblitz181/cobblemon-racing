@@ -32,7 +32,7 @@ end
 for k,v in pairs(tracks) do
     basalt.LOGGER.debug(v)
     main:addButton():setText("update " .. v):setPosition(24,0 + 4 * k):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
-        local request = http.get("tracks/" .. tracks_Url .. v .. ".json")
+        local request = http.get(tracks_Url .. v .. ".json")
         if not request then
             print("error getting track file")
             return
