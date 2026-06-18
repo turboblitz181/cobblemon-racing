@@ -88,7 +88,7 @@ main:addButton():setText("update updater"):setPosition(2,16):setSize(20,3):setBa
         print("error getting update file")
         return
     end
-    local file = fs.open("updater.lua", "w+")
+    local file = fs.open("update.lua", "w+")
     file.write(request.readAll())
     file.close()
     request.close()
