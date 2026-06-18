@@ -324,7 +324,7 @@ for x,y in pairs(tracks) do
         for k,v in pairs(best_list) do
             l = l + 1
             if lapm_track_label_list[leaderboard_track][l] then
-                lapm_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time)
+                lapm_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time .. " sec")
             end
         end
         basalt.setActiveFrame(lapm_track_list[y])
@@ -335,7 +335,7 @@ for x,y in pairs(tracks) do
     for k,v in pairs(racers_data[1]) do
         if v[y] ~= nil then
             i = i + 1
-            lapm_track_label_list[y][i] = lapm_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_lap):setPosition(2,2 + 2 * i)
+            lapm_track_label_list[y][i] = lapm_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_lap .. " sec"):setPosition(2,2 + 2 * i)
         end
     end
 end 
@@ -368,7 +368,7 @@ for x,y in pairs(tracks) do
         for k,v in pairs(best_list) do
             l = l + 1
             if s1m_track_label_list[leaderboard_track][l] then
-                s1m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time)
+                s1m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time .. " sec")
             end
         end
         basalt.setActiveFrame(s1m_track_list[y])
@@ -379,7 +379,7 @@ for x,y in pairs(tracks) do
     for k,v in pairs(racers_data[1]) do
         if v[y] ~= nil then
             i = i + 1
-            s1m_track_label_list[y][i] = s1m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s1):setPosition(2,2 + 2 * i)
+            s1m_track_label_list[y][i] = s1m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s1 .. " sec"):setPosition(2,2 + 2 * i)
         end
     end
 end 
@@ -412,7 +412,7 @@ for x,y in pairs(tracks) do
         for k,v in pairs(best_list) do
             l = l + 1
             if s2m_track_label_list[leaderboard_track][l] then
-                s2m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time)
+                s2m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time .. " sec")
             end
         end
         basalt.setActiveFrame(s2m_track_list[y])
@@ -423,7 +423,7 @@ for x,y in pairs(tracks) do
     for k,v in pairs(racers_data[1]) do
         if v[y] ~= nil then
             i = i + 1
-            s2m_track_label_list[y][i] = s2m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s2):setPosition(2,2 + 2 * i)
+            s2m_track_label_list[y][i] = s2m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s2 .. " sec"):setPosition(2,2 + 2 * i)
         end
     end
 end 
@@ -456,7 +456,7 @@ for x,y in pairs(tracks) do
         for k,v in pairs(best_list) do
             l = l + 1
             if s3m_track_label_list[leaderboard_track][l] then
-                s3m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time)
+                s3m_track_label_list[leaderboard_track][l]:setText(v.name .. " - " .. v.time .. " sec")
             end
         end
         basalt.setActiveFrame(s3m_track_list[y])
@@ -467,7 +467,7 @@ for x,y in pairs(tracks) do
     for k,v in pairs(racers_data[1]) do
         if v[y] ~= nil then
             i = i + 1
-            s3m_track_label_list[y][i] = s3m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s3):setPosition(2,2 + 2 * i)
+            s3m_track_label_list[y][i] = s3m_track_list[y]:addLabel():setText(v.name .. " - " .. v[y].best_s3 .. " sec"):setPosition(2,2 + 2 * i)
         end
     end
 end
