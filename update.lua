@@ -30,11 +30,11 @@ for t, name in ipairs(trackfiles) do
 end
 
 for k,v in pairs(tracks) do
-    basalt.LOGGER.debug(v)
+    
     main:addButton():setText("update " .. v):setPosition(24,0 + 4 * k):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
         local request = http.get(tracks_Url .. v .. ".json")
         if not request then
-            main:addLabel():setText("error"):setPosition(2,2):setSize(10,1)
+                basalt.LOGGER.debug("error")
             return
         end
         local file = fs.open("tracks/"  .. v .. ".json", "w+")
