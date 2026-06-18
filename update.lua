@@ -1,11 +1,12 @@
 startup_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua"
 tracks_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/tracks/"
 
-
 local basalt = require("basalt")
 local main = basalt.getMainFrame()
+basalt.LOGGER.setEnabled(true)
+basalt.LOGGER.setLogToFile(true)
 
-main:addButton():setText("update startup")setPosition(2,2):setSize(10,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+main:addButton():setText("update startup"):setPosition(2,4):setSize(20,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     local request = http.get(startup_Url)
     if not request then
         print("error getting startup file")
@@ -28,13 +29,14 @@ for t, name in ipairs(trackfiles) do
 end
 
 for k,v in pairs(tracks) do
-    main:addButton():setText("update " .. v)setPosition(2,2):setSize(10,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+    basalt.LOGGER.debug(v)
+    main:addButton():setText("update " .. v):setPosition(24,2 + 2 * k):setSize(20,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
         local request = http.get("tracks/" .. tracks_Url .. v .. ".json")
         if not request then
             print("error getting track file")
             return
         end
-        local file = fs.open(v .. ".json", "w+")
+        local file = fs.open("tracks/"  .. v .. ".json", "w+")
         file.write(request.readAll())
         file.close()
         request.close()
@@ -44,23 +46,25 @@ end
 
 add_track_frame = basalt.createFrame()
 track_name = add_track_frame:addInput():setPosition(2,4):setSize(20,1)
-add_track_frame:addButton():setText("confirm")setPosition(12,6):setSize(10,1):setBackground(colors.green):setForeground(colors.white):onClick(function() 
+add_track_frame:addButton():setText("confirm"):setPosition(12,6):setSize(10,1):setBackground(colors.green):setForeground(colors.white):onClick(function() 
     local request = http.get(tracks_Url .. track_name:getText() .. ".json")
     if not request then
         print("error getting startup file")
         return
     end
-    local file = fs.open(track_name:getText() .. ".json", "w+")
+    local file = fs.open("tracks/" .. track_name:getText() .. ".json", "w+")
     file.write(request.readAll())
     file.close()
     request.close()
     basalt.stop()
 end)
 
-add_track_frame:addButton():setText("back")setPosition(2,17):setSize(10,1):setBackground(colors.red):setForeground(colors.white):onClick(function() 
+add_track_frame:addButton():setText("back"):setPosition(2,17):setSize(20,1):setBackground(colors.red):setForeground(colors.white):onClick(function() 
     basalt.setActiveFrame(main)
 end)
 
-main:addButton():setText("add track")setPosition(2,2):setSize(10,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+main:addButton():setText("add track"):setPosition(2,6):setSize(20,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     basalt.setActiveFrame(add_track_frame)
 end)
+
+basalt.run()
