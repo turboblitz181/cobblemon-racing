@@ -29,7 +29,7 @@ end
 
 for k,v in pairs(tracks) do
     main:addButton():setText("update " .. v)setPosition(2,2):setSize(10,1):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
-        local request = http.get(tracks_Url .. v .. ".json")
+        local request = http.get("tracks/" .. tracks_Url .. v .. ".json")
         if not request then
             print("error getting track file")
             return
