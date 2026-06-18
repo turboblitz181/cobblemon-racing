@@ -1,8 +1,7 @@
 pd = peripheral.wrap("right")
 cb = peripheral.wrap("left")
-rr1 = peripheral.wrap("redstone_relay_1")
-rr2 = peripheral.wrap("redstone_relay_2")
-mon = peripheral.wrap("monitor_0")
+rr1 = peripheral.wrap("redstone_relay_0")
+rr2 = peripheral.wrap("redstone_relay_1")
 
 
 
