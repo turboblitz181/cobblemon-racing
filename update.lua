@@ -1,7 +1,7 @@
 startup_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/startup.lua"
 tracks_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/tracks/"
 racers_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/racers.json"
-racers_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/update.lua"
+update_Url = "https://raw.githubusercontent.com/turboblitz181/cobblemon-racing/refs/heads/main/update.lua"
 
 local basalt = require("basalt")
 local main = basalt.getMainFrame()
