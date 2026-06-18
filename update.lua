@@ -7,7 +7,7 @@ local main = basalt.getMainFrame()
 basalt.LOGGER.setEnabled(true)
 basalt.LOGGER.setLogToFile(true)
 
-main:addButton():setText("update startup"):setPosition(2,4):setSize(20,2):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+main:addButton():setText("update startup"):setPosition(2,4):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     local request = http.get(startup_Url)
     if not request then
         print("error getting startup file")
@@ -31,7 +31,7 @@ end
 
 for k,v in pairs(tracks) do
     basalt.LOGGER.debug(v)
-    main:addButton():setText("update " .. v):setPosition(24,0 + 4 * k):setSize(20,2):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+    main:addButton():setText("update " .. v):setPosition(24,0 + 4 * k):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
         local request = http.get("tracks/" .. tracks_Url .. v .. ".json")
         if not request then
             print("error getting track file")
@@ -64,11 +64,11 @@ add_track_frame:addButton():setText("back"):setPosition(2,17):setSize(20,1):setB
     basalt.setActiveFrame(main)
 end)
 
-main:addButton():setText("add track"):setPosition(2,8):setSize(20,2):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+main:addButton():setText("add track"):setPosition(2,8):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     basalt.setActiveFrame(add_track_frame)
 end)
 
-main:addButton():setText("update racers"):setPosition(2,12):setSize(20,2):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
+main:addButton():setText("update racers"):setPosition(2,12):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
     local request = http.get(racers_Url)
     if not request then
         print("error getting racers file")
