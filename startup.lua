@@ -550,7 +550,7 @@ race_start:addButton():setText("start race"):setPosition(2,2):setSize(20,3):setB
             players[3] = {player = "x",ring = 0,sector = 1,racetime = 0,s1time = 0,s2time = 0,s3time = 0,ftime = 0,laptimes = {},lap = 1}
         end
         basalt.LOGGER.debug("race is ready to start")
-        rr2.setOutput("right",true)
+        rr2.setOutput("bottom",true)
         cb.sendMessage("race is starting! get to your positions!")
         pos1 = false
         pos2 = false
@@ -575,7 +575,7 @@ race_start:addButton():setText("start race"):setPosition(2,2):setSize(20,3):setB
         sleep(1)
         cb.sendMessage("2!")
         sleep(0.5)   
-        rr2.setOutput("right",false)
+        rr2.setOutput("bottom",false)
         sleep(0.5)
         cb.sendMessage("1!")
 
