@@ -34,7 +34,7 @@ for k,v in pairs(tracks) do
     main:addButton():setText("update " .. v):setPosition(24,0 + 4 * k):setSize(20,3):setBackground(colors.blue):setForeground(colors.white):onClick(function() 
         local request = http.get(tracks_Url .. v .. ".json")
         if not request then
-            print("error getting track file")
+            main:addLabel():setText("error"):setPosition(2,2):setSize(10,1)
             return
         end
         local file = fs.open("tracks/"  .. v .. ".json", "w+")
